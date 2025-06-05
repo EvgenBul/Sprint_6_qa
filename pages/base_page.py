@@ -14,8 +14,13 @@ class BasePage:
         self.driver.execute_script('arguments[0].scrollIntoView();', element)
 
     @allure.step('Подождать прогрузки элемента')
-    def wait_visibility_of_element(self, locator):
-        return WebDriverWait(self.driver, 6).until(expected_conditions.visibility_of_element_located(locator))
+    def wait_visibility_of_element(self, locator, timeout=6):
+        return WebDriverWait(self.driver, timeout).until(
+            expected_conditions.visibility_of_element_located(locator))
+
+    def wait_invisibility_of_element(self, locator, timeout=6):
+        return WebDriverWait(self.driver, timeout).until(
+            expected_conditions.invisibility_of_element_located(locator))
 
     @allure.step('Кликнуть на элемент')
     def click_on_element(self, locator):
@@ -34,8 +39,9 @@ class BasePage:
         self.driver.switch_to.window(self.driver.window_handles[1])
 
     @allure.step('Получить заголовок страницы')
-    def get_page_title(self):
-        WebDriverWait(self.driver, 6).until(expected_conditions.presence_of_element_located(MainPageLocators.title_dzen))
+    def get_page_title(self, timeout=6):
+        WebDriverWait(self.driver, timeout).until(
+            expected_conditions.presence_of_element_located(('tag name', 'title')))
         return self.driver.title
 
     @allure.step('Проверить отображение элемента')
