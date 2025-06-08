@@ -1,0 +1,39 @@
+[33mcommit 6080f85a9deaf1a51061ff1238a4c8821e69ae4e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdevelop[m[33m, [m[1;31morigin/develop[m[33m)[m
+Author: Evgenii Bulychev <zhindozz@yandex.ru>
+Date:   Wed Jun 4 17:53:52 2025 +0300
+
+    Final project structure: tests, pages, locators, allure reports
+
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mindex 9d992d7..b59d1e7 100644[m
+[1m--- a/.gitignore[m
+[1m+++ b/.gitignore[m
+[36m@@ -28,3 +28,4 @@[m [mhtmlcov/[m
+ .DS_Store[m
+ Thumbs.db[m
+ [m
+[32m+[m[32mallure-report/[m
+\ No newline at end of file[m
+[1mdiff --git a/allure_results/05563ca5-46f5-4141-b9df-a815e68c86ac-container.json b/allure_results/05563ca5-46f5-4141-b9df-a815e68c86ac-container.json[m
+[1mnew file mode 100644[m
+[1mindex 0000000..dc093ab[m
+[1m--- /dev/null[m
+[1m+++ b/allure_results/05563ca5-46f5-4141-b9df-a815e68c86ac-container.json[m
+[36m@@ -0,0 +1 @@[m
+[32m+[m[32m{"uuid": "ae96bf0e-6712-476b-9e22-533bb506ec7b", "befores": [{"name": "expected_answer", "status": "passed", "start": 1749047554109, "stop": 1749047554109}], "start": 1749047554109, "stop": 1749047555260}[m
+\ No newline at end of file[m
+[1mdiff --git a/allure_results/05d9ae60-3eb2-46aa-9cbe-ce08b5bfc3ef-result.json b/allure_results/05d9ae60-3eb2-46aa-9cbe-ce08b5bfc3ef-result.json[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ac7b455[m
+[1m--- /dev/null[m
+[1m+++ b/allure_results/05d9ae60-3eb2-46aa-9cbe-ce08b5bfc3ef-result.json[m
+[36m@@ -0,0 +1 @@[m
+[32m+[m[32m{"name": "Проверка раздела \"Вопросы о важном\"", "status": "passed", "description": "Проверка появления нужного текста при нажатии на каждую иконку развертывания в разделе", "steps": [{"name": "Проскролить до секции \"Вопросы о важном\"", "status": "passed", "steps": [{"name": "Скролл до элемента", "status": "passed", "parameters": [{"name": "locator", "value": "('xpath', '//div[contains(@class, \"Home_FAQ\")]')"}], "start": 1749047565515, "stop": 1749047565597}], "start": 1749047565515, "stop": 1749047565597}, {"name": "Подождать прогрузки нужного номера вопроса в аккордеоне \"Вопросы о важном\"", "status": "passed", "steps": [{"name": "Подождать прогрузки элемента", "status": "passed", "parameters": [{"name": "locator", "value": "('xpath', '//div[@id=\"accordion__heading-5\"]/parent::div')"}], "start": 1749047565597, "stop": 1749047565665}], "parameters": [{"name": "data", "value": "6"}], "start": 1749047565597, "stop": 1749047565665}, {"name": "Кликнуть на нужный номер вопроса в аккордеоне \"Вопросы о важном\"", "status": "passed", "steps": [{"name": "Кликнуть на элемент", "status": "passed", "parameters": [{"name": "locator", "value": "('xpath', '//div[@id=\"accordion__heading-5\"]/parent::div')"}], "start": 1749047565666, "stop": 1749047565824}], "parameters": [{"name": "data", "value": "6"}], "start": 1749047565666, "stop": 1749047565824}, {"name": "Подождать прогрузки нужного номера ответа в аккордеоне \"Вопросы о важном\"", "status": "passed", "steps": [{"name": "Подождать прогрузки элемента", "status": "passed", "parameters": [{"name": "locator", "value": "('xpath', '//div[@id=\"accordion__panel-5\"]')"}], "start": 1749047565824, "stop": 1749047565854}], "parameters": [{"name": "data", "value": "6"}], "start": 1749047565824, "stop": 1749047565854}, {"name": "Получить текст нужного номера ответа в аккордеоне \"Вопросы о главном\"", "status": "passed", "steps": [{"name": "Получить текст на элементе", "status": "passed", "parameters": [{"name": "locator", "value": "('xpath', '//div[@id=\"accordion__panel-5\"]')"}], "start": 1749047565855, "stop": 1749047565883}], "parameters": [{"name": "data", "value": "6"}], "start": 1749047565855, "stop": 1749047565883}], "attachments": [{"name": "log", "source": "cbf0b718-1c76-4c24-b3c6-8f4501b11fd7-attachment.txt", "type": "text/plain"}], "parameters": [{"name": "question_number", "value": "6"}, {"name": "expected_answer", "value": "'Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.'"}], "start": 1749047565515, "stop": 1749047565883, "uuid": "4852f28a-79c2-48ff-8f71-b52c9a3d0451", "historyId": "8e26b89c6a5b7af191f81231ce70f549", "testCaseId": "cfbd8332574c8858db0cd2b5e1337ded", "fullName": "tests.test_main_page.TestMainPageFaq#test_click_faq_expend_icons_text_is_expected", "labels": [{"name": "parentSuite", "value": "tests"}, {"name": "suite", "value": "test_main_page"}, {"name": "subSuite", "value": "TestMainPageFaq"}, {"name": "host", "value": "DESKTOP-JK85EMN"}, {"name": "thread", "value": "13464-MainThread"}, {"name": "framework", "value": "pytest"}, {"name": "language", "value": "cpython3"}, {"name": "package", "value": "tests.test_main_page"}]}[m
+\ No newline at end of file[m
+[1mdiff --git a/allure_results/0aa76e73-3f0e-4114-9a75-2b3cf165c910-result.json b/allure_results/0aa76e73-3f0e-4114-9a75-2b3cf165c910-result.json[m
+[1mnew file mode 100644[m
+[1mindex 0000000..c55ccad[m
+[1m--- /dev/null[m
+[1m+++ b/allure_results/0aa76e73-3f0e-4114-9a75-2b3cf165c910-result.json[m
+[36m@@ -0,0 +1 @@[m
+[32m+[m[32m{"name": "Проверка позитивного сценария оформления заказа", "status": "passed", "description": "Сквозное тестирование функциональности оформления заказа из двух точек входа", "steps": [{"name": "Скролл до элемента", "status": "passed", "parameters": [{"name": "locator", "value": "('xpath', '//div[contains(@class, \"Home_FinishButton\")]/button')"}], "start": 1749047588376, "stop": 1749047588443}, {"name": "Подождать прогрузки элемента", "status": "passed", "parameters": [{"name": "locator", "value": "('xpath', '//div[contains(@class, \"Home_FinishButton\")]/button')"}], "start": 1749047588443, "stop": 1749047588527}, {"name": "Кликнуть на элемент", "status": "passed", "parameters": [{"name": "locator", "value": "('xpath', '//div[contains(@class, \"Home_FinishButton\")]/button')"}], "start": 1749047588528, "stop": 1749047588717}, {"name": "Заполнение первой части формы и нажатие кнопки \"Далее\"", "status": "passed", "steps": [{"name": "Подождать прогрузки элемента", "status": "passed", "parameters": [{"name": "locator", "value": "('xpath', \"//input[@placeholder='* Имя']\")"}], "start": 1749047588717, "stop": 1749047588746}, {"name": "Кликнуть на элемент", "status": "passed", "parameters": [{"name": "locator", "value": "('xpath', \"//input[@placeholder='* Имя']\")"}], "start": 1749047588746, "stop": 1749047588843}, {"name": "Ввести значение в поле ввода", "status": "passed", "parameters": [{"name": "locator", "value": "('xpath', \"//input[@placeholder='* Имя']\")"}, {"name": "keys", "value": "'Гедеван'"}], "start": 1749047588843, "stop": 1749047588921}, {"name": "Кликнуть на элемент", "status": "passed", "parameters": [{"name": "locator", "value": "('xpath', \"//input[@placeholder='* Фамилия']\")"}], "start": 1749047588922, "stop": 1749047588997}, {"name": "Ввести значение в поле ввода", "status": "passed", "parameters": [{"name": "locator", "value": "('xpath', \"//input[@placeholder='* Фамилия']\")"}, {"name": "keys", "value": "'Алексидзе'"}], "start": 1749047589000, "stop": 1749047589063}, {"name": "Кликнуть на элемент", "status": "passed",

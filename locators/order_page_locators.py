@@ -18,6 +18,6 @@ class OrderPageLocators:
     dropdown_item_rental_period = (By.XPATH, "//div[@class = 'Dropdown-menu']/div[text() = 'трое суток']")
     checkbox_grey_color_scooter = (By.XPATH, "//input[@id='grey']")
     comment = (By.XPATH, "//input[@placeholder='Комментарий для курьера']")
-    button_make_order = (By.XPATH, "//div[contains(@class, 'Order Buttons')]/button[text()='Заказать']")
+    button_make_order = (By.XPATH, "//button[text()='Заказать' and contains(@class, 'Button_Middle')]")
     button_yes_confirm_order = (By.XPATH, "//button[text()='Да']")
-    button_check_status_of_order = (By.XPATH, "//*[text()='Посмотреть статус']")
+    button_check_status_of_order = ('xpath', '//button[text()="Посмотреть статус"]')

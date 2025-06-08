@@ -28,6 +28,12 @@ class OrderPage(BasePage):
         self.click_on_element(OrderPageLocators.checkbox_grey_color_scooter)
         self.click_on_element(OrderPageLocators.field_rental_period)
         self.click_on_element(OrderPageLocators.dropdown_item_rental_period)
-        self.click_on_element(OrderPageLocators.checkbox_grey_color_scooter)
         self.click_on_element(OrderPageLocators.comment)
         self.send_keys_to_input(OrderPageLocators.comment, test_data[6])
+        self.click_on_element(OrderPageLocators.button_make_order)
+        self.wait_visibility_of_element(OrderPageLocators.button_yes_confirm_order)
+        self.click_on_element(OrderPageLocators.button_yes_confirm_order)
+
+    @allure.step('Проверить отображение кнопки "Посмотреть статус" после создания заказа')
+    def check_displaying_of_button_check_status_of_order(self):
+        return self.check_displaying_of_element(OrderPageLocators.button_check_status_of_order)
