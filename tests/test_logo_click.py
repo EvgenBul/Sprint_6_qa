@@ -27,11 +27,9 @@ class TestLogo:
             main_page.click_on_header_logo_yandex()
 
         with allure.step('3. Переключиться и проверить заголовок'):
-            # Ждем появления второй вкладки
             WebDriverWait(driver, 10).until(lambda d: len(d.window_handles) > 1)
             main_page.switch_to_next_tab()
 
-            # Явное ожидание загрузки title
             WebDriverWait(driver, 10).until(
                 lambda d: d.title != '' and 'Дзен' in d.title,
                 message=f'Заголовок не содержит "Дзен". Текущий заголовок: {driver.title}'
