@@ -17,7 +17,6 @@ __pycache__/
 *.bak
 *.swp
 
-allure-results/
 .pytest_cache/
 .coverage
 htmlcov/
@@ -28,7 +27,7 @@ htmlcov/
 .DS_Store
 Thumbs.db
 
-allure-report/
+
 
 
 
