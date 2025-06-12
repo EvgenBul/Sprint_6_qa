@@ -1,7 +1,8 @@
-import allure
+
+from locators.main_page_locators import MainPageLocators
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
-
+import allure
 
 
 class BasePage:
@@ -13,37 +14,30 @@ class BasePage:
         element = self.driver.find_element(*locator)
         self.driver.execute_script('arguments[0].scrollIntoView();', element)
 
-    @allure.step('Подождать прогрузки элемента')
-    def wait_visibility_of_element(self, locator, timeout=6):
-        return WebDriverWait(self.driver, timeout).until(
-            expected_conditions.visibility_of_element_located(locator))
-
-    def wait_invisibility_of_element(self, locator, timeout=6):
-        return WebDriverWait(self.driver, timeout).until(
-            expected_conditions.invisibility_of_element_located(locator))
-
-    @allure.step('Кликнуть на элемент')
+    @allure.step('Проверка отображения элемента')
+    def check_displaying_of_element(self, locator):
+        return self.driver.find_element(*locator).is_displayed()
+    @allure.step('Клик по элементу')
     def click_on_element(self, locator):
         self.driver.find_element(*locator).click()
 
-    @allure.step('Ввести значение в поле ввода')
+    @allure.step('Ввести значение в поле')
     def send_keys_to_input(self, locator, keys):
         self.driver.find_element(*locator).send_keys(keys)
-
-    @allure.step('Получить текст на элементе')
-    def get_text_on_element(self, locator):
-        return self.driver.find_element(*locator).text
 
     @allure.step('Перейти на другую вкладку')
     def switch_to_next_tab(self):
         self.driver.switch_to.window(self.driver.window_handles[1])
 
     @allure.step('Получить заголовок страницы')
-    def get_page_title(self, timeout=6):
-        WebDriverWait(self.driver, timeout).until(
-            expected_conditions.presence_of_element_located(('tag name', 'title')))
+    def get_page_title(self):
+        WebDriverWait(self.driver, 5).until(expected_conditions.presence_of_element_located(MainPageLocators.title_of_page))
         return self.driver.title
 
-    @allure.step('Проверить отображение элемента')
-    def check_displaying_of_element(self, locator):
-        return self.driver.find_element(*locator).is_displayed()
+    @allure.step('Получить текст на элементе')
+    def get_text_on_element(self, locator):
+        return self.driver.find_element(*locator).text
+
+    @allure.step('Ожидание загрузки элемента')
+    def wait_visibility_of_element(self, locator):
+        return WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located(locator))
