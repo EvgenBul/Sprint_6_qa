@@ -1,11 +1,12 @@
 import pytest
 from selenium import webdriver
-from data import TestData
+from selenium.webdriver.firefox.options import Options
 
-@pytest.fixture()
+
+@pytest.fixture(scope="function")
 def driver():
-    driver = webdriver.Firefox()
-    driver.maximize_window()
-    driver.get(TestData.scooter_address)
+    firefox_options = Options()
+    driver = webdriver.Firefox(options=firefox_options)
+    driver.get('https://qa-scooter.praktikum-services.ru/')
     yield driver
     driver.quit()
